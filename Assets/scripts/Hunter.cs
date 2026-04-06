@@ -22,6 +22,11 @@ public class Hunter : MonoBehaviour
     public float recoveryAcceleration = 15f; // speed at which recovery gains momentum
     private float currentRecoveryMomentum;
 
+    [Header("Footstep Audio")]
+    public AudioSource woodsAudioSource;
+    public float maxVolume = 1.0f;       // Volume at full speed
+    public float volumeLerpSpeed = 5f;   // How fast the volume fades in/out
+
     [Header("UI Reference")]
     public Slider noiseSlider;
     public Gradient noiseGradient; // The color map (Yellow to Red)
@@ -139,9 +144,29 @@ public class Hunter : MonoBehaviour
     private void HandleStealthNoise()
     {
         float moveSpeed = new Vector3(cc.velocity.x, 0, cc.velocity.z).magnitude;
-        float movementCeiling = maxMovementNoise + heartNoiseContribution;
 
-        // if moving, reset recovery momentum. If still, accelerate it.
+        if (woodsAudioSource != null)
+        {
+            // start with a target of 0 (Silence)
+            float targetVolume = 0f;
+
+            // 2if moving, set the target to match the Noise Slider
+            if (moveSpeed > 0.1f)
+            {
+                float noisePercentage = currentNoise / 100f; 
+                targetVolume = noisePercentage * maxVolume;
+            }
+
+            // the fade
+            if (!woodsAudioSource.isPlaying) woodsAudioSource.Play();
+
+            // FADE: 
+            woodsAudioSource.volume = Mathf.MoveTowards(woodsAudioSource.volume, targetVolume, volumeLerpSpeed * Time.deltaTime);
+        }
+        // --- End Audio Volume Logic ---
+
+        // (The rest of your noise and UI logic remains exactly the same below)
+        float movementCeiling = maxMovementNoise + heartNoiseContribution;
         if (moveSpeed < 0.1f)
         {
             currentRecoveryMomentum = Mathf.MoveTowards(currentRecoveryMomentum, maxRecoveryRate, recoveryAcceleration * Time.deltaTime);

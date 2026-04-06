@@ -17,6 +17,13 @@ public class PlayerBreath : MonoBehaviour
     [Header("Rates")]
     public float breathDrainSpeed = 15f; 
     public float recoverySpeed = 10f;    
+
+    [Header("Audio")]
+    public AudioSource audioSource; 
+    public AudioClip gaspSound;  
+    public AudioClip inhaleSound;
+    public float inhaleVolume = 0.5f; 
+    public float gaspVolume = 0.8f;
     
     private Hunter hunterScript;
 
@@ -35,7 +42,16 @@ public class PlayerBreath : MonoBehaviour
 
     void HandleInput()
     {
-        // Holding Left Shift holds breath
+        if (Keyboard.current.leftShiftKey.wasPressedThisFrame && heartRate < maxHeartRate)
+        {
+            if (audioSource != null && inhaleSound != null)
+            {
+                audioSource.PlayOneShot(inhaleSound, inhaleVolume);
+                Debug.Log("Inhale Sound Triggered!"); // This will tell us if the code is working
+            }
+        }
+
+        // HOLDING LOGIC
         if (Keyboard.current.leftShiftKey.isPressed && heartRate < maxHeartRate)
         {
             isHoldingBreath = true;
@@ -107,6 +123,11 @@ public class PlayerBreath : MonoBehaviour
         if (playerCamera != null) StartCoroutine(JoltCamera());
         
         Debug.Log("Player gasped! Noise level spiked to 30.");
+
+            if (audioSource != null && gaspSound != null)
+        {
+            audioSource.PlayOneShot(gaspSound, gaspVolume); 
+        }
     }
 
     IEnumerator JoltCamera()
