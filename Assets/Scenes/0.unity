@@ -851,7 +851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4b1f43d225c645a09f8370df0950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayNightCycle
-  dayLengthInMinutes: 5
+  dayLengthInMinutes: 10
   timeOfDay: 0.25
   dayDeerPrefab: {fileID: 8837707983891942351, guid: d91b5bb8f97dab94ab59a78204adbc5d, type: 3}
   monsterPrefab: {fileID: 5651479650212270506, guid: 0d861157822429e48b5682ed31bc1b71, type: 3}
