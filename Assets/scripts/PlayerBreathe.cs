@@ -22,8 +22,8 @@ public class PlayerBreath : MonoBehaviour
     public AudioSource audioSource; 
     public AudioClip gaspSound;  
     public AudioClip inhaleSound;
-    public float inhaleVolume = 0.5f; 
-    public float gaspVolume = 0.8f;
+    public float inhaleVolume = 0.3f; 
+    public float gaspVolume = 2.0f;
     
     private Hunter hunterScript;
 

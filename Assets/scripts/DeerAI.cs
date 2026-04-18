@@ -7,6 +7,7 @@ public class DeerAI : MonoBehaviour
     
     [Header("Status")]
     public DeerState currentState = DeerState.Idle;
+    private DeerState lastState; // Tracks changes to prevent animation stuttering
 
     [Header("Movement Settings")]
     public float walkSpeed = 1f;
@@ -17,16 +18,19 @@ public class DeerAI : MonoBehaviour
     
     [Header("Timing")]
     public float minIdleTime = 2f;
-    public float maxIdleTime = 6f;
+    public float maxIdleTime = 15f;
     private float timer;
 
     private NavMeshAgent agent;
     private Transform player;
     private Hunter hunterScript; 
+    private Animator animator; 
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null) 
         {
@@ -34,8 +38,13 @@ public class DeerAI : MonoBehaviour
             hunterScript = playerObj.GetComponent<Hunter>();
         }
 
+        // Initialize state
+        lastState = currentState;
         timer = Random.Range(minIdleTime, maxIdleTime);
         agent.speed = walkSpeed;
+
+        // Ensure agent doesn't get stuck on tiny bumps
+        agent.stoppingDistance = 0.5f; 
     }
 
     void Update()
@@ -43,12 +52,23 @@ public class DeerAI : MonoBehaviour
         if (player == null || hunterScript == null) return;
 
         HandleDetection();
+        UpdateAnimator();
 
         switch (currentState)
         {
             case DeerState.Idle: HandleIdle(); break;
             case DeerState.Wander: HandleWander(); break;
             case DeerState.Fleeing: HandleFleeing(); break;
+        }
+    }
+
+    void UpdateAnimator()
+    {
+        if (animator != null && currentState != lastState)
+        {
+            // Only triggers when the state actually flips (Idle -> Wander, etc.)
+            animator.SetInteger("State", (int)currentState);
+            lastState = currentState;
         }
     }
 
@@ -59,20 +79,19 @@ public class DeerAI : MonoBehaviour
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
         float noise = hunterScript.currentNoise;
 
-        // HUGE noise the deer hears it 
-        // regardless of walls/vision as long as it's within range.
+        // Heard a shot (Loud noise)
         if (noise > 30f && distanceToPlayer < 35f)
         {
-            Debug.Log(gameObject.name + " heard a loud shot!");
             OnHeardNoise(player.position);
             return;
         }
 
-        // If noise is > 5 (walking), use detectionRange. If still/holding breath, use stillRange.
+        // Determine range based on player movement
         float currentDetectionRange = (noise > 5f) ? detectionRange : stillDetectionRange;
 
         if (distanceToPlayer < currentDetectionRange)
         {
+            // Raycast to check line of sight (deer head height approx 1.6f)
             Vector3 rayOrigin = transform.position + (Vector3.up * 1.6f);
             Vector3 dirToPlayer = (player.position - rayOrigin).normalized;
 
@@ -88,8 +107,6 @@ public class DeerAI : MonoBehaviour
 
     public void OnHeardNoise(Vector3 noiseSource)
     {
-        if (currentState == DeerState.Fleeing) return;
-
         currentState = DeerState.Fleeing;
         agent.speed = fleeSpeed;
 
@@ -97,6 +114,7 @@ public class DeerAI : MonoBehaviour
         Vector3 rawTargetPos = transform.position + fleeDir * 30f; 
 
         NavMeshHit hit;
+        // Sample position to find a valid spot on the NavMesh to run to
         if (NavMesh.SamplePosition(rawTargetPos, out hit, 15f, NavMesh.AllAreas))
         {
             agent.SetDestination(hit.position);
@@ -113,20 +131,17 @@ public class DeerAI : MonoBehaviour
         {
             float distToPlayer = Vector3.Distance(transform.position, player.position);
 
-            // Keep fleeing if still too close
             if (distToPlayer < 20f) 
             {
                 OnHeardNoise(player.position); 
             }
             else 
             {
-                timer = maxIdleTime;
+                timer = Random.Range(minIdleTime, maxIdleTime);
                 currentState = DeerState.Idle;
                 agent.speed = walkSpeed;
             }
         }
-        Debug.Log("deer fleeing from being hit");
-
     }
 
     void HandleIdle()
@@ -140,7 +155,10 @@ public class DeerAI : MonoBehaviour
                 agent.SetDestination(newTarget);
                 currentState = DeerState.Wander;
             }
-            else { timer = 1f; }
+            else 
+            { 
+                timer = 1f; // Retry in 1 second if no valid spot found
+            }
         }
     }
 
@@ -158,8 +176,11 @@ public class DeerAI : MonoBehaviour
         Vector3 randomDir = Random.insideUnitSphere * wanderRadius;
         randomDir += transform.position;
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDir, out hit, wanderRadius, 1)) return hit.position;
+        // The '1' in the last parameter refers to the first NavMesh area (Walkable)
+        if (NavMesh.SamplePosition(randomDir, out hit, wanderRadius, 1)) 
+        {
+            return hit.position;
+        }
         return Vector3.zero;
     }
-
 }

@@ -1,0 +1,577 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &123420639200250646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7651522319884941891}
+  - component: {fileID: 649006814576292480}
+  - component: {fileID: 660790720936104480}
+  m_Layer: 0
+  m_Name: Head
+  m_TagString: Deer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7651522319884941891
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123420639200250646}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7092531, y: -0, z: -0, w: 0.70495397}
+  m_LocalPosition: {x: 0, y: 5.54, z: 3.75}
+  m_LocalScale: {x: 1, y: 2.0966878, z: 1.2368}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9097799276667209988}
+  m_LocalEulerAnglesHint: {x: 90.34799, y: 0, z: 0}
+--- !u!136 &649006814576292480
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123420639200250646}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &660790720936104480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123420639200250646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7898bbb4674ff4548a34f28640d04285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerPart
+  mainHealth: {fileID: 4685129815312135282}
+  damageMultiplier: 1.5
+--- !u!1 &2069976564318298537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 626753448045611399}
+  - component: {fileID: 244888624552121521}
+  - component: {fileID: 6111745894605226363}
+  m_Layer: 0
+  m_Name: Vitals
+  m_TagString: Deer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &626753448045611399
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069976564318298537}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.18675882, y: -0, z: -0, w: 0.98240584}
+  m_LocalPosition: {x: 0, y: 3.52, z: 1.58}
+  m_LocalScale: {x: 2.2192676, y: 3.5124063, z: 2.7755833}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9097799276667209988}
+  m_LocalEulerAnglesHint: {x: 21.527, y: 0, z: 0}
+--- !u!136 &244888624552121521
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069976564318298537}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6111745894605226363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2069976564318298537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7898bbb4674ff4548a34f28640d04285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerPart
+  mainHealth: {fileID: 4685129815312135282}
+  damageMultiplier: 2
+--- !u!1 &5175806485657714040
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2944364227075744446}
+  - component: {fileID: 2787368727521252603}
+  - component: {fileID: 3621788494535333146}
+  m_Layer: 0
+  m_Name: Neck
+  m_TagString: Deer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2944364227075744446
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175806485657714040}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.40821025, y: 0.022571623, z: 0.02279918, w: 0.9123241}
+  m_LocalPosition: {x: 0, y: 4.88, z: 2.99}
+  m_LocalScale: {x: 1.764895, y: 2.7289479, z: 1.1533598}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9097799276667209988}
+  m_LocalEulerAnglesHint: {x: 48.057, y: 5.133, z: 5.153}
+--- !u!136 &2787368727521252603
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175806485657714040}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3621788494535333146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5175806485657714040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7898bbb4674ff4548a34f28640d04285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerPart
+  mainHealth: {fileID: 4685129815312135282}
+  damageMultiplier: 1
+--- !u!1 &5253893381821382372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7850667835796467388}
+  - component: {fileID: 1792054807027201375}
+  - component: {fileID: 445556351885653591}
+  m_Layer: 0
+  m_Name: Body
+  m_TagString: Deer
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7850667835796467388
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253893381821382372}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.6990932, y: -0, z: -0, w: 0.71503055}
+  m_LocalPosition: {x: 0.40236402, y: 3.36, z: -0.8}
+  m_LocalScale: {x: 2.0253, y: 6.0991917, z: 3.0979266}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9097799276667209988}
+  m_LocalEulerAnglesHint: {x: 88.709, y: 0, z: 0}
+--- !u!136 &1792054807027201375
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253893381821382372}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &445556351885653591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5253893381821382372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7898bbb4674ff4548a34f28640d04285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerPart
+  mainHealth: {fileID: 4685129815312135282}
+  damageMultiplier: 1
+--- !u!1001 &8776206430630014703
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.3376491
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 18.081585
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 355.7283
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_Name
+      value: deer1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_TagString
+      value: Deer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_TagString
+      value: Deer
+      objectReference: {fileID: 0}
+    - target: {fileID: 7036213049465896255, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      propertyPath: m_TagString
+      value: Deer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 626753448045611399}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7651522319884941891}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7850667835796467388}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2944364227075744446}
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 279527657295831148}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 771025394136106863}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4685129815312135282}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6345701602538718616}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: -4268214395518055407}
+  m_SourcePrefab: {fileID: 100100000, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+--- !u!1 &8433606655580459966 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+  m_PrefabInstance: {fileID: 8776206430630014703}
+  m_PrefabAsset: {fileID: 0}
+--- !u!195 &279527657295831148
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433606655580459966}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &771025394136106863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433606655580459966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 797e457c5c78b29438ed6b72df02ab39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerAI
+  currentState: 0
+  walkSpeed: 1
+  fleeSpeed: 8
+  wanderRadius: 15
+  detectionRange: 25
+  stillDetectionRange: 10
+  minIdleTime: 2
+  maxIdleTime: 15
+--- !u!114 &4685129815312135282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433606655580459966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c19ca9a1a44cee140b036e53d6776e4b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DeerHealth
+  health: 100
+  bloodParticles: {fileID: 5081279514405595287, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+  ArrowHitSound: {fileID: 8300000, guid: 9e5fdbeb223d55a46babc87fb3058278, type: 3}
+  HitVolume: 0.5
+--- !u!95 &6345701602538718616
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433606655580459966}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+  m_Controller: {fileID: 9100000, guid: fa8be39efa486c6428f3948e015ad5e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &-4268214395518055407
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8433606655580459966}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -5076147568878923647, guid: 4d2a2dbe7c67fb74ebcccd25e08a783f, type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &9097799276667209988 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+  m_PrefabInstance: {fileID: 8776206430630014703}
+  m_PrefabAsset: {fileID: 0}
