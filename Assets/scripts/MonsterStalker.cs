@@ -22,8 +22,8 @@ public class MonsterStalker : MonoBehaviour
 
     [Header("Combat Settings")]
     public float attackDamage = 40f;     
-    public float attackRange = 2.5f;     // Hhw close it must be to hit
-    public float attackCooldown = 1.5f;  // time between swings
+    public float attackRange = 2.5f;     // How close it must be to hit
+    public float attackCooldown = 1.5f;  // Time between swings
     private float lastAttackTime;
 
     [Header("Search Settings")]
@@ -37,20 +37,23 @@ public class MonsterStalker : MonoBehaviour
 
     [Header("Distance Settings")]
     public float wanderRadius = 15f;
+    public float tetherDistance = 40f; // distance before the monster rubber bands to the player
 
     private NavMeshAgent agent;
+    private Animator anim; // Added for the new model
     private Transform player;
     private Hunter hunterScript;
     private PlayerHealth playerHealth; // reference to the health script
     private Vector3 lastHeardPosition;
     private float currentChaseSpeed;
 
-    [Header("Distance Settings")]
-    public float tetherDistance = 40f; // distance before the monster rubber bands to the player
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        
+        // Find the animator on the child object (MonsterDeer)
+        anim = GetComponentInChildren<Animator>();
+
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null) 
         {
@@ -75,7 +78,13 @@ public class MonsterStalker : MonoBehaviour
             case MonsterState.Searching: HandleSearching(); break;
         }
 
-        // check if close enough to hurt the player
+        // Sync legs animation to the actual movement speed
+        if (anim != null)
+        {
+            anim.SetFloat("Speed", agent.velocity.magnitude);
+        }
+
+        // Check if close enough to hurt the player
         HandleCombat();
     }
 
@@ -98,11 +107,17 @@ public class MonsterStalker : MonoBehaviour
     void AttackPlayer()
     {
         lastAttackTime = Time.time;
+        
+        // Trigger a random attack animation from the 4
+        if (anim != null)
+        {
+            int randomAtk = Random.Range(1, 5); // Picks 1, 2, 3, or 4
+            anim.SetTrigger("Atk" + randomAtk);
+        }
+
         playerHealth.TakeDamage(attackDamage);
         
         Debug.Log("Monster Attacked! Player Health: " + playerHealth.currentHealth);
-        
-        // i still need to  Add a 'Scream' or 'Hit' sound here to get Dynamic Audio (3 pts)
     }
 
     void HandleSenses()
@@ -212,21 +227,17 @@ public class MonsterStalker : MonoBehaviour
         {
             Vector3 centerPoint;
             
-            // distance check the monster is from the player
             float distToPlayer = Vector3.Distance(transform.position, player.position);
             
             if (distToPlayer > tetherDistance)
             {
-                //monster is too far away! cheat and wander toward the player zone.
                 centerPoint = player.position;
             }
             else
             {
-                // The monster is in the neighborhood! Wander naturally around itself
                 centerPoint = transform.position;
             }
 
-            // Pick a random point around the random chosen center
             Vector3 point = centerPoint + (Random.insideUnitSphere * wanderRadius);
             
             NavMeshHit hit;
@@ -236,8 +247,4 @@ public class MonsterStalker : MonoBehaviour
             }
         }
     }
-
-
-
-
 }

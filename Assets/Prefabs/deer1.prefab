@@ -280,6 +280,73 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DeerPart
   mainHealth: {fileID: 4685129815312135282}
   damageMultiplier: 1
+--- !u!1001 &1324840918668491707
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9097799276667209988}
+    m_Modifications:
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.312593
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6745712
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.50900865
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.50900865
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.4908259
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.49082613
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -87.916
+      objectReference: {fileID: 0}
+    - target: {fileID: 9001735389945711100, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+      propertyPath: m_Name
+      value: BloodDrip
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+--- !u!4 &1202614962059820622 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 203308652734842357, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+  m_PrefabInstance: {fileID: 1324840918668491707}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6117738773007455020 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5081279514405595287, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+  m_PrefabInstance: {fileID: 1324840918668491707}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8776206430630014703
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -371,6 +438,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2944364227075744446}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1202614962059820622}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 56be1779ed7706543aa32dddfbb1a786, type: 3}
       insertIndex: -1
@@ -448,7 +518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeerHealth
   health: 100
-  bloodParticles: {fileID: 5081279514405595287, guid: 72a2398f0ca916945a5c9332a261923a, type: 3}
+  bloodParticles: {fileID: 6117738773007455020}
   ArrowHitSound: {fileID: 8300000, guid: 9e5fdbeb223d55a46babc87fb3058278, type: 3}
   HitVolume: 0.5
 --- !u!95 &6345701602538718616

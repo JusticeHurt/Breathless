@@ -851,8 +851,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4b1f43d225c645a09f8370df0950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayNightCycle
-  dayLengthInMinutes: 10
-  timeOfDay: 0.25
+  dayLengthInMinutes: 2
+  timeOfDay: 0.205
   dayDeerPrefab: {fileID: 8433606655580459966, guid: 516534398495aaf40beaa1a37156616c, type: 3}
   monsterPrefab: {fileID: 5651479650212270506, guid: 0d861157822429e48b5682ed31bc1b71, type: 3}
   player: {fileID: 4582931219426386879, guid: 4a86daaf742e5334e883f7415d67a413, type: 3}
@@ -3339,6 +3339,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 1645411815}
+    - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
+      propertyPath: maxHealth
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: gameOverUI
       value: 

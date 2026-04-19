@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 56be1779ed7706543aa32dddfbb1a786
+guid: 6cd88ad6b9fc0c646b461623374036f1
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -31,11 +31,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Deer_Idle.001
-      takeName: Deer_Idle.001
-      internalID: -594853789702472132
+      name: Armature|Attack
+      takeName: Armature|Attack
+      internalID: 4723146814002874508
       firstFrame: 0
-      lastFrame: 223
+      lastFrame: 35
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -60,11 +60,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Deer_Wander
-      takeName: Deer_Wander
-      internalID: -6972667180708864482
+      name: Armature|chase
+      takeName: Armature|chase
+      internalID: -4614022275596074917
       firstFrame: 0
-      lastFrame: 135
+      lastFrame: 242
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -89,11 +89,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Deer_Flee
-      takeName: Deer_Flee
-      internalID: 142848355122197177
+      name: Armature|KickAttack
+      takeName: Armature|KickAttack
+      internalID: 525711180955934404
       firstFrame: 0
-      lastFrame: 236
+      lastFrame: 39
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|Search
+      takeName: Armature|Search
+      internalID: -1421030172958439010
+      firstFrame: 0
+      lastFrame: 248
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -118,11 +147,40 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Deer_Flee
-      takeName: Armature|Deer_Flee
-      internalID: -8243966261015581282
+      name: Armature|Stalk
+      takeName: Armature|Stalk
+      internalID: -8854020191847262690
       firstFrame: 0
-      lastFrame: 236
+      lastFrame: 247
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|StompAttack
+      takeName: Armature|StompAttack
+      internalID: 6336804738822505924
+      firstFrame: 0
+      lastFrame: 45
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -147,11 +205,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Deer_Idle
-      takeName: Armature|Deer_Idle
-      internalID: -2426245773010163554
+      name: Armature|SwipeAttack
+      takeName: Armature|SwipeAttack
+      internalID: -955449522668485867
       firstFrame: 0
-      lastFrame: 245
+      lastFrame: 29
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -176,18 +234,18 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|Deer_Wander
-      takeName: Armature|Deer_Wander
-      internalID: -3099245891843661046
+      name: Armature|Wander
+      takeName: Armature|Wander
+      internalID: 7460144920568322717
       firstFrame: 0
-      lastFrame: 135
+      lastFrame: 372
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
