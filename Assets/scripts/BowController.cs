@@ -29,8 +29,8 @@ public class BowController : MonoBehaviour
 
     [Header("Trajectory Line")]
     public LineRenderer lineRenderer;
-    public int linePoints = 25;      // Smoothness of the line
-    public float timeStep = 0.1f;    // Length of the prediction
+    public int linePoints = 25;
+    public float timeStep = 0.1f;
     [Header("Trajectory Colors")]
     public Color normalColor = Color.green;
     public Color targetColor = Color.red;
@@ -41,13 +41,12 @@ public class BowController : MonoBehaviour
     public GameObject fakeArrow;
     public PlayerBreath breathSystem; 
     private Hunter hunterScript;
+    public Animator bowAnimator; // Reference to Animator
 
     [Header("Audio")]
     AudioSource audioSource;
     public AudioClip bowShotSound; 
     public float bowVolume = 0.5f;
-
-
 
     private bool isReloading = false;
     private Vector3 initialLocalPos;
@@ -60,8 +59,6 @@ public class BowController : MonoBehaviour
     void Awake() 
     {
         mainCam = Camera.main; 
-
-        //AudioSource initialization
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -77,7 +74,6 @@ public class BowController : MonoBehaviour
             hunterScript = playerObj.GetComponent<Hunter>();
         }
 
-        // Cleanup LineRenderer on start
         if (lineRenderer != null) lineRenderer.positionCount = 0;
     }
 
@@ -87,18 +83,24 @@ public class BowController : MonoBehaviour
         HandleRecoilRecovery();
         HandleSway();
 
-        // Update the aiming state
+        // Update aiming state
         isAiming = !isReloading && Mouse.current.rightButton.isPressed;
+
+        // ANIMATOR: Update isAiming bool
+        if (bowAnimator != null)
+        {
+            bowAnimator.SetBool("isAiming", isAiming);
+        }
 
         if (isAiming)
         {
             fakeArrow.SetActive(true);
-            DrawTrajectory(); //Visualize the arc
+            DrawTrajectory();
             if (Mouse.current.leftButton.wasPressedThisFrame) Shoot();
         }
         else 
         {
-            if (lineRenderer != null) lineRenderer.positionCount = 0; // Hide line
+            if (lineRenderer != null) lineRenderer.positionCount = 0;
             if (!isReloading) fakeArrow.SetActive(false);
         }
     }
@@ -106,17 +108,13 @@ public class BowController : MonoBehaviour
     void DrawTrajectory()
     {
         if (lineRenderer == null || shootPoint == null) return;
-
         lineRenderer.positionCount = linePoints;
         Vector3 startPosition = shootPoint.position;
-        
         float forceToSimulate = (breathSystem != null && breathSystem.isHoldingBreath) ? launchForce * holdingBreathMultiplier : launchForce;
-        
         Vector3 startVelocity = shootPoint.forward * forceToSimulate;
         Vector3 lastPoint = startPosition;
         bool hitDeer = false;
 
-        // Set initial color
         lineRenderer.startColor = normalColor;
         lineRenderer.endColor = normalColor;
 
@@ -124,27 +122,18 @@ public class BowController : MonoBehaviour
         {
             float time = i * timeStep;
             Vector3 currentPoint = startPosition + startVelocity * time + 0.5f * Physics.gravity * time * time;
-            
             lineRenderer.SetPosition(i, currentPoint);
 
-            // Check if this segment of the line hits a deer
             RaycastHit hit;
             if (Physics.Linecast(lastPoint, currentPoint, out hit))
             {
-                if (hit.collider.CompareTag("Deer"))
-                {
-                    hitDeer = true;
-                }
-                // Stop drawing the line if hitS anything (walls, ground, etc.)
+                if (hit.collider.CompareTag("Deer")) hitDeer = true;
                 lineRenderer.positionCount = i + 1;
                 break;
-
             }
-
             lastPoint = currentPoint;
         }
 
-        // Update color based on if DEER FOUND
         if (hitDeer)
         {
             lineRenderer.startColor = targetColor;
@@ -161,6 +150,13 @@ public class BowController : MonoBehaviour
     void Shoot()
     {
         isReloading = true;
+
+        // ANIMATOR: Fire the Shoot trigger
+        if (bowAnimator != null)
+        {
+            bowAnimator.SetTrigger("Shoot");
+        }
+
         GameObject newArrow = Instantiate(arrowPrefab, shootPoint.position, shootPoint.rotation);
         Rigidbody rb = newArrow.GetComponent<Rigidbody>();
         
