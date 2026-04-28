@@ -108,16 +108,34 @@ public class MonsterStalker : MonoBehaviour
     {
         lastAttackTime = Time.time;
         
+        // STOP the monster from sliding/moving
+        if (agent != null)
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero; // Kill remaining momentum
+        }
+
         // Trigger a random attack animation from the 4
         if (anim != null)
         {
-            int randomAtk = Random.Range(1, 5); // Picks 1, 2, 3, or 4
+            int randomAtk = Random.Range(1, 5); 
             anim.SetTrigger("Atk" + randomAtk);
         }
 
         playerHealth.TakeDamage(attackDamage);
         
         Debug.Log("Monster Attacked! Player Health: " + playerHealth.currentHealth);
+
+        // Resume moving after a short delay (shorter than cooldown)
+        Invoke("ResumeMovement", 0.8f); 
+    }
+
+    void ResumeMovement()
+    {
+        if (agent != null && currentState == MonsterState.Hunting)
+        {
+            agent.isStopped = false;
+        }
     }
 
     void HandleSenses()
