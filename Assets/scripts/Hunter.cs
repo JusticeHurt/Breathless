@@ -24,7 +24,7 @@ public class Hunter : MonoBehaviour
 
     [Header("Footstep Audio")]
     public AudioSource woodsAudioSource;
-    public float maxVolume = 1.0f;       // Volume at full speed
+    public float maxVolume = .65f;       // Volume at full speed
     public float volumeLerpSpeed = 5f;   // How fast the volume fades in/out
 
     [Header("UI Reference")]
