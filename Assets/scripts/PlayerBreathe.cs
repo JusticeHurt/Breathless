@@ -107,8 +107,9 @@ public class PlayerBreath : MonoBehaviour
             // VIGNETTE LOGIC
             if (breathVignette != null)
             {
-                //breath is 100% (1.0), alpha is 0.0. If breath is 0% (0.0), alpha is 1.0.
-                float targetAlpha = 1f - breathPercentage;
+                //shows when 40% of breathe is used
+                float threshold = 0.4f; 
+                float targetAlpha = Mathf.Max(0, (1f - breathPercentage - threshold) / (1f - threshold));
 
                 // Stop flickering if the heart rate jumps
                 breathVignette.alpha = Mathf.Lerp(breathVignette.alpha, targetAlpha, Time.deltaTime * 1.5f);

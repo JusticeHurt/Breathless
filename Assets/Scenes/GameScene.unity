@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
-  m_Color: {r: 0.33459416, g: 0.9162978, b: 0.9716981, a: 0.6117647}
+  m_Color: {r: 0.33459416, g: 0.9162978, b: 0.9716981, a: 0.48235294}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7152,8 +7152,8 @@ MonoBehaviour:
   maxClearTime: 180
   minRainTime: 60
   maxRainTime: 300
-  fadeDuration: 3
-  maxVolume: 0.5
+  fadeDuration: 20
+  maxVolume: 0.3
 --- !u!82 &1231359020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7165,17 +7165,17 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -6501388877526363742, guid: 4d2a2dbe7c67fb74ebcccd25e08a783f, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: 27a5cc0bd5d27f446970e9e56dd3e094, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.674
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 169
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 50
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -7211,7 +7211,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -8974,7 +8974,7 @@ PrefabInstance:
       objectReference: {fileID: 1645411815}
     - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: maxHealth
-      value: 5000
+      value: 50000
       objectReference: {fileID: 0}
     - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: gameOverUI

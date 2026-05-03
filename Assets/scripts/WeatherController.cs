@@ -14,7 +14,7 @@ public class WeatherController : MonoBehaviour
 
     [Header("Audio Settings")]
     public float fadeDuration = 3f; 
-    public float maxVolume = 0.5f;   // full volume of the rain
+    public float maxVolume = 0.3f;   // full volume of the rain
 
     void Start()
     {
@@ -27,20 +27,28 @@ public class WeatherController : MonoBehaviour
         StartCoroutine(WeatherRoutine());
     }
 
-    IEnumerator WeatherRoutine()
+   IEnumerator WeatherRoutine()
     {
         while (true)
         {
-            StartCoroutine(FadeVolume(0, fadeDuration));
-            rain.Stop();
-            
-            yield return new WaitForSeconds(Random.Range(minClearTime, maxClearTime));
-
+            Debug.Log("Rain Starting...");//start rain
             rain.Play();
             if (rainSound != null && !rainSound.isPlaying) rainSound.Play();
-            StartCoroutine(FadeVolume(maxVolume, fadeDuration));
+            
+            yield return StartCoroutine(FadeVolume(maxVolume, fadeDuration));
 
-            yield return new WaitForSeconds(Random.Range(minRainTime, maxRainTime));
+
+            yield return new WaitForSeconds(Random.Range(minRainTime, maxRainTime));//rain for random amount of time
+
+            // stop rain
+            Debug.Log("Rain Stopping...");
+            rain.Stop();
+            
+            // Fade OUT the audio. 
+            yield return StartCoroutine(FadeVolume(0, fadeDuration));
+
+            // Stay clear for a random amount of time
+            yield return new WaitForSeconds(Random.Range(minClearTime, maxClearTime));
         }
     }
 
