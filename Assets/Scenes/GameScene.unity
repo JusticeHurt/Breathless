@@ -1320,7 +1320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.33459416, g: 0.9162978, b: 0.9716981, a: 0.48235294}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1721,8 +1721,8 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1825020076}
   - {fileID: 395372233}
+  - {fileID: 1825020076}
   - {fileID: 1854683817}
   - {fileID: 910136974}
   - {fileID: 1084859437}
@@ -2330,7 +2330,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Breath Meter
+  m_text: Breathe Meter
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -8521,7 +8521,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 0.19215687, g: 0, b: 0, a: 0.6117647}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -9472,7 +9472,7 @@ PrefabInstance:
       objectReference: {fileID: 1645411815}
     - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: maxHealth
-      value: 50000
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1193939314266904066, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: gameOverUI
@@ -9490,6 +9490,10 @@ PrefabInstance:
       propertyPath: playerCamera
       value: 
       objectReference: {fileID: 330585546}
+    - target: {fileID: 2008651296815053458, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
+      propertyPath: bloodVignette
+      value: 
+      objectReference: {fileID: 1825020077}
     - target: {fileID: 2008651296815053458, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: breathVignette
       value: 

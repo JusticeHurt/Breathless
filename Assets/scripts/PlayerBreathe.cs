@@ -8,6 +8,8 @@ public class PlayerBreath : MonoBehaviour
     [Header("UI References")]
     public Slider breathBar;
     public Transform playerCamera; 
+    public CanvasGroup breathVignette; // The blue one
+    public CanvasGroup bloodVignette;  // The red one
 
     [Header("Breath Settings")]
     public float heartRate = 60f;
@@ -25,7 +27,6 @@ public class PlayerBreath : MonoBehaviour
     public float inhaleVolume = 0.3f; 
     public float gaspVolume = 2.0f;
 
-    public CanvasGroup breathVignette;
     
     private Hunter hunterScript;
 
@@ -122,6 +123,11 @@ public class PlayerBreath : MonoBehaviour
                 fillImage.color = Color.Lerp(Color.red, Color.cyan, breathPercentage);
             }
         }
+        if (bloodVignette != null && bloodVignette.alpha > 0)
+        {
+            // This slowly drains the red alpha back to 0 over about half a second
+            bloodVignette.alpha = Mathf.MoveTowards(bloodVignette.alpha, 0f, Time.deltaTime * 2f);
+        }
     }
 
     void TriggerGasp()
@@ -135,7 +141,8 @@ public class PlayerBreath : MonoBehaviour
         {
             hunterScript.MakeNoise(30f); 
         }
-        if (playerCamera != null) StartCoroutine(JoltCamera());
+        // In PlayerBreath.cs inside TriggerGasp() gasp isnt red so i do a null
+        if (playerCamera != null) StartCoroutine(JoltCamera(-5f, 0.1f, false));
         
         //Debug.Log("Player gasped! Noise level spiked to 30.");
 
@@ -145,29 +152,39 @@ public class PlayerBreath : MonoBehaviour
         }
     }
 
-    IEnumerator JoltCamera()
+    // public for my attack script
+    // 
+    //parameters for kickAmount, duration, and an optional color
+    public IEnumerator JoltCamera(float kickAmount = -5f, float duration = 0.1f, bool isAttack = false)
     {
         float elapsed = 0f;
-        float duration = 0.1f;
+        float halfDuration = duration / 2f;
         Quaternion startRot = playerCamera.localRotation;
-        Quaternion targetRot = startRot * Quaternion.Euler(-5f, 0, 0);
+        Quaternion targetRot = startRot * Quaternion.Euler(kickAmount, Random.Range(-2f, 2f), 0);
 
-        while (elapsed < duration)
+        // If it's an attack, we spike the blood vignette alpha
+        if (isAttack && bloodVignette != null)
         {
-            playerCamera.localRotation = Quaternion.Slerp(startRot, targetRot, elapsed / duration);
+            bloodVignette.alpha = 1f; 
+        }
+
+        // --- Jolt Logic ---
+        while (elapsed < halfDuration)
+        {
+            playerCamera.localRotation = Quaternion.Slerp(startRot, targetRot, elapsed / halfDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
-
         elapsed = 0f;
-        duration = 0.2f;
-        while (elapsed < duration)
+        while (elapsed < halfDuration)
         {
-            playerCamera.localRotation = Quaternion.Slerp(targetRot, startRot, elapsed / duration);
+            playerCamera.localRotation = Quaternion.Slerp(targetRot, startRot, elapsed / halfDuration);
             elapsed += Time.deltaTime;
             yield return null;
         }
+        playerCamera.localRotation = startRot;
     }
+
 
 
 

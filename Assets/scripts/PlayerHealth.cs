@@ -101,14 +101,14 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = 0;
         UpdateUI();
 
-        // 1. Time Dilation.. Bounty Point
+        // Time Dilation.. Bounty Point
         Time.timeScale = deathTimeDilation;
         Time.fixedDeltaTime = 0.02f * Time.timeScale; 
 
-        // 2. Show the Restart Menu
+        // Show the Restart Menu
         if (gameOverUI != null) gameOverUI.SetActive(true);
 
-        // 3. Unlock Mouse
+        // Unlock Mouse
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 

@@ -121,8 +121,17 @@ public class MonsterStalker : MonoBehaviour
             int randomAtk = Random.Range(1, 5); 
             anim.SetTrigger("Atk" + randomAtk);
         }
-
-        playerHealth.TakeDamage(attackDamage);
+        PlayerBreath breathScript = player.GetComponent<PlayerBreath>();
+    
+        if (breathScript != null)
+        {
+            // Kick: -15 (heavy), Duration: 0.2, Color: Red
+           StartCoroutine(breathScript.JoltCamera(-15f, 0.2f, true));
+        }
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(attackDamage);
+        }
         
         //Debug.Log("Monster Attacked! Player Health: " + playerHealth.currentHealth);
 
