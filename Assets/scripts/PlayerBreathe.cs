@@ -24,6 +24,8 @@ public class PlayerBreath : MonoBehaviour
     public AudioClip inhaleSound;
     public float inhaleVolume = 0.3f; 
     public float gaspVolume = 2.0f;
+
+    public CanvasGroup breathVignette;
     
     private Hunter hunterScript;
 
@@ -98,8 +100,20 @@ public class PlayerBreath : MonoBehaviour
     {
         if (breathBar != null)
         {
+            // 1.0 is full breath, 0.0 is gasping
             float breathPercentage = 1f - ((heartRate - 60f) / (maxHeartRate - 60f));
             breathBar.value = breathPercentage;
+
+            // VIGNETTE LOGIC
+            if (breathVignette != null)
+            {
+                //breath is 100% (1.0), alpha is 0.0. If breath is 0% (0.0), alpha is 1.0.
+                float targetAlpha = 1f - breathPercentage;
+
+                // Stop flickering if the heart rate jumps
+                breathVignette.alpha = Mathf.Lerp(breathVignette.alpha, targetAlpha, Time.deltaTime * 1.5f);
+            }
+            // --------------------------
 
             if (breathBar.fillRect != null)
             {
