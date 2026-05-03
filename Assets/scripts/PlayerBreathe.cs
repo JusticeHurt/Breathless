@@ -47,7 +47,7 @@ public class PlayerBreath : MonoBehaviour
             if (audioSource != null && inhaleSound != null)
             {
                 audioSource.PlayOneShot(inhaleSound, inhaleVolume);
-                Debug.Log("Inhale Sound Triggered!"); // This will tell us if the code is working
+                //Debug.Log("Inhale Sound Triggered!"); 
             }
         }
 
@@ -122,7 +122,7 @@ public class PlayerBreath : MonoBehaviour
         }
         if (playerCamera != null) StartCoroutine(JoltCamera());
         
-        Debug.Log("Player gasped! Noise level spiked to 30.");
+        //Debug.Log("Player gasped! Noise level spiked to 30.");
 
             if (audioSource != null && gaspSound != null)
         {

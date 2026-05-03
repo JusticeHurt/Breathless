@@ -22,7 +22,7 @@ public class MonsterStalker : MonoBehaviour
 
     [Header("Combat Settings")]
     public float attackDamage = 40f;     
-    public float attackRange = 2.5f;     // How close it must be to hit
+    public float attackRange = 4f;     // How close I must be to hit
     public float attackCooldown = 1.5f;  // Time between swings
     private float lastAttackTime;
 
@@ -51,7 +51,7 @@ public class MonsterStalker : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         
-        // Find the animator on the child object (MonsterDeer)
+        // find the animator on the child object (MonsterDeer)
         anim = GetComponentInChildren<Animator>();
 
         GameObject playerObj = GameObject.FindWithTag("Player");
@@ -124,7 +124,7 @@ public class MonsterStalker : MonoBehaviour
 
         playerHealth.TakeDamage(attackDamage);
         
-        Debug.Log("Monster Attacked! Player Health: " + playerHealth.currentHealth);
+        //Debug.Log("Monster Attacked! Player Health: " + playerHealth.currentHealth);
 
         // Resume moving after a short delay (shorter than cooldown)
         Invoke("ResumeMovement", 0.8f); 
