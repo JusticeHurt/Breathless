@@ -39,6 +39,12 @@ public class MonsterStalker : MonoBehaviour
     public float wanderRadius = 15f;
     public float tetherDistance = 40f; // distance before the monster rubber bands to the player
 
+    [Header("Audio")]
+    AudioSource audioSource;
+    public AudioClip MonsterAttackSound; 
+    public float HitVolume = 0.5f;
+    
+
     private NavMeshAgent agent;
     private Animator anim; // Added for the new model
     private Transform player;
@@ -54,6 +60,7 @@ public class MonsterStalker : MonoBehaviour
         // find the animator on the child object (MonsterDeer)
         anim = GetComponentInChildren<Animator>();
 
+        audioSource = GetComponent<AudioSource>();
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null) 
         {
@@ -121,6 +128,12 @@ public class MonsterStalker : MonoBehaviour
             int randomAtk = Random.Range(1, 5); 
             anim.SetTrigger("Atk" + randomAtk);
         }
+
+        if (audioSource != null && MonsterAttackSound != null)
+        {
+            audioSource.PlayOneShot(MonsterAttackSound, HitVolume);
+        }
+
         PlayerBreath breathScript = player.GetComponent<PlayerBreath>();
     
         if (breathScript != null)
