@@ -101,7 +101,7 @@ public class PlayerHealth : MonoBehaviour
         currentHealth = 0;
         UpdateUI();
 
-        // 1. Time Dilation (Bounty Point!)
+        // 1. Time Dilation.. Bounty Point
         Time.timeScale = deathTimeDilation;
         Time.fixedDeltaTime = 0.02f * Time.timeScale; 
 
@@ -123,16 +123,16 @@ public class PlayerHealth : MonoBehaviour
 
     IEnumerator ReloadWithFade()
 {
-    // 1. Manually reset the deer counter so the spawner works
+    // Manually reset the deer counter so the spawner works
     Hunter.deerKilled = 0; 
 
-    // 2. Smooth Fade to black before restart
+    // Smooth Fade to black before restart
     if (fadeOverlay != null)
     {
         yield return StartCoroutine(Fade(0, 1));
     }
 
-    // 3. Reset time scales so the game isn't frozen
+    // Reset time scales so the game isn't frozen
     Time.timeScale = 1f;
     Time.fixedDeltaTime = 0.02f;
 

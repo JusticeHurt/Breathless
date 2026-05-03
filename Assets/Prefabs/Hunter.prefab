@@ -854,6 +854,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
@@ -1194,7 +1195,7 @@ MonoBehaviour:
   breathBar: {fileID: 4159415224796444521}
   playerCamera: {fileID: 0}
   heartRate: 60
-  maxHeartRate: 120
+  maxHeartRate: 150
   isHoldingBreath: 0
   breathDrainSpeed: 15
   recoverySpeed: 10
@@ -1215,7 +1216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e6ff6ebdac785849bd13da2f1dbd231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
-  maxHealth: 500
+  maxHealth: 5
   currentHealth: 0
   healRate: 2
   healthSlider: {fileID: 6617094668463687801}
@@ -1560,6 +1561,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
+  m_UseReflectionProbes: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0

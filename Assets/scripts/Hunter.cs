@@ -101,9 +101,14 @@ public class Hunter : MonoBehaviour
 
     void WinGame()
     {
-        // bring up the win panel and freeze time
+        //  slow-mo victory lap
+        Time.timeScale = 0.2f; 
+        Time.fixedDeltaTime = 0.02f * Time.timeScale; 
+
+        //the win panel
         if (winScreenUI != null) winScreenUI.SetActive(true);
-        Time.timeScale = 0f; 
+        
+        // Unlock Mouse
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
@@ -165,7 +170,7 @@ public class Hunter : MonoBehaviour
         }
         // --- End Audio Volume Logic ---
 
-        // (The rest of your noise and UI logic remains exactly the same below)
+        //
         float movementCeiling = maxMovementNoise + heartNoiseContribution;
         if (moveSpeed < 0.1f)
         {
