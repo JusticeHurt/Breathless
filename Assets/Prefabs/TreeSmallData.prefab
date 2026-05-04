@@ -309,7 +309,7 @@ PrefabInstance:
       addedObject: {fileID: 2390545454373643276}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ba214edfa5532bf4897c9d2c21ef6eb7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 300958256134930021}
+      addedObject: {fileID: 2079751802624295497}
   m_SourcePrefab: {fileID: 100100000, guid: ba214edfa5532bf4897c9d2c21ef6eb7, type: 3}
 --- !u!4 &1552577801161005423 stripped
 Transform:
@@ -348,8 +348,8 @@ LODGroup:
     renderers: []
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!65 &300958256134930021
-BoxCollider:
+--- !u!136 &2079751802624295497
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -366,9 +366,11 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 2, y: 2, z: 2}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 2
+  m_Radius: 1.3986886
+  m_Height: 4.6506424
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.56006527, z: 0.24998116}
 --- !u!23 &2481743198264200794 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -5732650769364995874, guid: ba214edfa5532bf4897c9d2c21ef6eb7, type: 3}
