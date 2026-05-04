@@ -147,7 +147,7 @@ PrefabInstance:
       addedObject: {fileID: 6136660754856410985}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 7b6a451d947696845b4ea6676ab6bfb7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2603020564090609560}
+      addedObject: {fileID: 4320107840858661851}
   m_SourcePrefab: {fileID: 100100000, guid: 7b6a451d947696845b4ea6676ab6bfb7, type: 3}
 --- !u!23 &1477638955809629975 stripped
 MeshRenderer:
@@ -202,19 +202,24 @@ LODGroup:
     renderers: []
   m_Enabled: 1
   m_GlobalIlluminationLOD: 0
---- !u!208 &2603020564090609560
-NavMeshObstacle:
+--- !u!65 &4320107840858661851
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9050664306117810018}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 1.25, y: 1.25, z: 1.25}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
+  m_Size: {x: 2, y: 2, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
