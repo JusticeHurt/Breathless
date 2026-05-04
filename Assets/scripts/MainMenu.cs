@@ -38,7 +38,7 @@ public class MainMenu : MonoBehaviour
         difficultyStatusText.color = statusColor;
 
       
-      
+
         easyBtn.image.color = Color.gray;
         normalBtn.image.color = Color.gray;
         hardBtn.image.color = Color.gray;
@@ -47,5 +47,15 @@ public class MainMenu : MonoBehaviour
         activeBtn.image.color = statusColor;
     }
 
-    // ... PlayGame and QuitGame functions ...
+    public void PlayGame()
+    {
+        //  GameScene is Index 1 in Build Settings
+        SceneManager.LoadScene(1); 
+    }
+
+    public void QuitGame()
+    {
+        Debug.Log("Game Exited");
+        Application.Quit();
+    }
 }
