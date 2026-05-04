@@ -21,10 +21,14 @@ public class DeerHealth : MonoBehaviour
         deerAI = GetComponent<DeerAI>();
         audioSource = GetComponent<AudioSource>();
 
+        float multiplier = DifficultySettings.MonsterSpeedMultiplier;
+        health *= multiplier;
+
         if (bloodParticles != null) 
         {
             bloodParticles.Stop();
         }
+       Debug.Log($"{gameObject.name} spawned with {health} HP.");
     }
 
     public void TakeDamage(float amount)

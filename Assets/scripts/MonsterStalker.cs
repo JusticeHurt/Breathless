@@ -69,6 +69,21 @@ public class MonsterStalker : MonoBehaviour
             playerHealth = playerObj.GetComponent<PlayerHealth>();
             lastHeardPosition = transform.position; 
         }
+        float multiplier = DifficultySettings.MonsterSpeedMultiplier;
+        // --- MOVEMENT ---
+        chaseSpeed *= multiplier;
+        stalkSpeed *= multiplier;
+        searchSpeed *= multiplier;
+
+        // --- VISION ---
+        // If multiplier is 0.7 (Easy)
+        visionRange *= multiplier; 
+
+        // --- SENSES (Hearing) ---
+        baseHearingThreshold /= multiplier;
+        baseHuntThreshold /= multiplier;
+        instantDetectNoise /= multiplier;
+        Debug.Log($"Difficulty Applied! Speed: {chaseSpeed}, Vision: {visionRange}, Hearing: {baseHearingThreshold}");
     }
 
     void Update()

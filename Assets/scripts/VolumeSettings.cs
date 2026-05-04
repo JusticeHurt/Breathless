@@ -18,12 +18,12 @@ public class VolumeSettings : MonoBehaviour
     {
         float volume = musicSlider.value;
         // Converts 0-1 linear value to -80 to 0 decibels
-        mainMixer.SetFloat("MusicVol", Mathf.Log10(volume) *  20);
+        mainMixer.SetFloat("MusicVol",Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20);
     }
 
     public void SetSFXVolume()
     {
         float volume = sfxSlider.value;
-        mainMixer.SetFloat("SFXVol",  Mathf.Log10(volume) * 20);
+        mainMixer.SetFloat("SFXVol",  Mathf.Log10(Mathf.Max(0.0001f, volume)) * 20);
     }
 }

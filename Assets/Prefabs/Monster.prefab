@@ -594,7 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19ca9a1a44cee140b036e53d6776e4b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DeerHealth
-  health: 100
+  health: 500
   bloodParticles: {fileID: 665225703412448422}
   ArrowHitSound: {fileID: 8300000, guid: 9e5fdbeb223d55a46babc87fb3058278, type: 3}
   HitVolume: 0.5

@@ -38,6 +38,20 @@ public class DeerAI : MonoBehaviour
             hunterScript = playerObj.GetComponent<Hunter>();
         }
 
+        float multiplier = DifficultySettings.MonsterSpeedMultiplier;
+
+        // Movement: Harder deer run faster; easier deer are slower
+        walkSpeed *= multiplier;
+        fleeSpeed *= multiplier;
+
+        // Harder deer have a massive detection radius.
+        detectionRange *= multiplier;
+        stillDetectionRange *= multiplier;
+
+    
+        minIdleTime /= multiplier; 
+        maxIdleTime /= multiplier;
+
         // Initialize state
         lastState = currentState;
         timer = Random.Range(minIdleTime, maxIdleTime);
@@ -45,6 +59,9 @@ public class DeerAI : MonoBehaviour
 
         // Ensure agent doesn't get stuck on tiny bumps
         agent.stoppingDistance = 0.5f; 
+
+
+
     }
 
     void Update()
