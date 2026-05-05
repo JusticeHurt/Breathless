@@ -1572,8 +1572,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4e4b1f43d225c645a09f8370df0950d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DayNightCycle
-  dayLengthInMinutes: 10
-  timeOfDay: 0.6
+  dayLengthInMinutes: 4
+  timeOfDay: 0.373
   dayDeerPrefab: {fileID: 8433606655580459966, guid: 516534398495aaf40beaa1a37156616c, type: 3}
   monsterPrefab: {fileID: 5651479650212270506, guid: 0d861157822429e48b5682ed31bc1b71, type: 3}
   player: {fileID: 4582931219426386879, guid: 4a86daaf742e5334e883f7415d67a413, type: 3}
@@ -8254,7 +8254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 14.822754, y: -39.602478}
+  m_AnchoredPosition: {x: 14.822693, y: -39.602478}
   m_SizeDelta: {x: 360.7469, y: 60.3975}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1411752634
@@ -8535,7 +8535,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 827b823ad2ba0554cbab8fb2f4486fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FirstPersonCamera
-  sensitivity: 100
+  sensitivity: 75
   aimMultiplier: 0.1
   cameraTransform: {fileID: 0}
 --- !u!4 &1645411816
@@ -10594,6 +10594,10 @@ PrefabInstance:
       propertyPath: winScreenUI
       value: 
       objectReference: {fileID: 1571448565}
+    - target: {fileID: 5575433552825246314, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
+      propertyPath: noiseBuildRate
+      value: 1.7
+      objectReference: {fileID: 0}
     - target: {fileID: 5575433552825246314, guid: ec514a4e0fc929a479f9d9d271da080f, type: 3}
       propertyPath: deerCounterText
       value: 

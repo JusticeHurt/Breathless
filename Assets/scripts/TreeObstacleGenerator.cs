@@ -21,7 +21,8 @@ public class TreeObstacleGenerator : MonoBehaviour
             // Add the NavMesh Obstacle component
             NavMeshObstacle nmo = obstacleFolder.AddComponent<NavMeshObstacle>();
             nmo.shape = NavMeshObstacleShape.Capsule;
-            nmo.radius = 2f;
+            
+            nmo.radius = 3f;
             nmo.height = 4f;
             nmo.carving = true; 
         }

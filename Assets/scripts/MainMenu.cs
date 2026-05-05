@@ -43,7 +43,7 @@ public class MainMenu : MonoBehaviour
         normalBtn.image.color = Color.gray;
         hardBtn.image.color = Color.gray;
 
-        // 3. Make the selected one pop
+        // selected one pops
         activeBtn.image.color = statusColor;
     }
 

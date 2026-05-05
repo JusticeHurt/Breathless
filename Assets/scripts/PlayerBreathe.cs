@@ -93,6 +93,7 @@ public class PlayerBreath : MonoBehaviour
 
         // Pass heart rate hum to Hunter
         float heartNoise = (heartRate - 60f) / 12f;
+        
         hunterScript.UpdateHeartNoise(heartNoise);
     }
 

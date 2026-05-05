@@ -262,7 +262,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 3bc0e9b7ed607f74397edbfca2aa541f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1090,6 +1090,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   hunter: {fileID: 5575433552825246314}
   playerCamera: {fileID: 0}
+  interactDistance: 3
+  interactPromptUI: {fileID: 0}
 --- !u!114 &5575433552825246314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1194,6 +1196,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBreath
   breathBar: {fileID: 4159415224796444521}
   playerCamera: {fileID: 0}
+  breathVignette: {fileID: 0}
+  bloodVignette: {fileID: 0}
   heartRate: 60
   maxHeartRate: 150
   isHoldingBreath: 0
