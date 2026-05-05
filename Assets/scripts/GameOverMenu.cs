@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    // Reloads whatever scene you are currently in
+    // Reloads whatever scene currently in
     public void RestartGame()
     {
         //  set Time.timeScale = 0

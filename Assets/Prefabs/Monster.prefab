@@ -553,7 +553,7 @@ MonoBehaviour:
   attackRange: 4
   attackCooldown: 1.5
   searchDuration: 10
-  baseHearingThreshold: 20
+  baseHearingThreshold: 22
   baseHuntThreshold: 30
   instantDetectNoise: 40
   wanderRadius: 20

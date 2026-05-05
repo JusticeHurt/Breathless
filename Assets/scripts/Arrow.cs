@@ -4,7 +4,7 @@ public class Arrow : MonoBehaviour
 {
     private Rigidbody rb;
     private bool hasHit;
-    public float baseDamage = 50f; // Set your base damage here
+    public float baseDamage = 50f; // Set base damage here
 
     void Start()
     {
@@ -25,16 +25,16 @@ public class Arrow : MonoBehaviour
         if (hasHit) return;
         hasHit = true;
 
-        // 1. Try to find a DeerPart on the specific cube we hit
+        // to find a DeerPart on the specific cube we hit
         DeerPart hitPart = collision.gameObject.GetComponent<DeerPart>();
 
         if (hitPart != null)
         {
-            // 2. Apply damage through the hitbox system
+            // damage through the hitbox system
             hitPart.ApplyDamage(baseDamage);
         }
 
-        // Stop the physics so it "sticks"
+        // Stop the physics so it 
         rb.isKinematic = true; 
         
         // Disable the collider so it doesn't bump into other things while stuck

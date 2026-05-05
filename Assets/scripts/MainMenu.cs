@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI; // Required for Button colors
-using TMPro;           // Required for TextMeshPro
+using UnityEngine.UI; //for Button colors
+using TMPro;           // for TextMeshPro
 
 public class MainMenu : MonoBehaviour
 {
